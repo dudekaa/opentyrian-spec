@@ -1,19 +1,19 @@
-%global insidedir opentyrian-opentyrian-98afb31c7343
+%global insidedir opentyrian-opentyrian-6edd3686f939
 %global tyriandir /usr/share/games/opentyrian/data
 %global debug_package %{nil}
 
 Name: opentyrian
-# 2.1.20150528hg98afb31c7343
+# 2.1.20180925hg6edd3686f939
 Epoch: 1
 Version: 2.1
-Release: 8.20150528hg98afb31c7343%{?dist}
+Release: 9.20180925hg6edd3686f939%{?dist}
 Summary: OpenTyrian is a port of the DOS shoot-em-up Tyrian.
 
 Group: Games
 License: GPLv2
 URL: https://bitbucket.org/opentyrian/opentyrian
-# Fetched from https://bitbucket.org/opentyrian/opentyrian/get/98afb31c7343.zip
-Source: opentyrian-opentyrian-98afb31c7343.zip
+# Fetched from https://bitbucket.org/opentyrian/opentyrian/get/6edd3686f939.zip
+Source: opentyrian-opentyrian-6edd3686f939.zip
 # Fetched from http://camanis.net/tyrian/tyrian21.zip
 Source1: tyrian21.zip
 Patch: opentyrian-lowerscript.patch
@@ -105,7 +105,11 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
-* Sat Dec 24 2016 Arnost Dudek <arnost@arnostdudek.cz> - 2.1-8.20150528hg98afb31c7343
+* Wed Dec 26 2018 Arnost Dudek <arnost@arnostdudek.cz> - 2.1-9.20180925hg6edd3686f939
+- git rev 6edd3686f939
+- disabled debug build
+
+* Sat Dec 24 2016 Arnost Dudek <arnost@arnostdudek.cz> - 2.1-8.20150528hg6edd3686f939
 - updated sources
 
 * Sat Mar 19 2016 Arnost Dudek <arnost@arnostdudek.cz> - 2.1.20130907-7
