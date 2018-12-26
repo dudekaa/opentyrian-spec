@@ -31,7 +31,7 @@ Tyrian is an arcade-style vertical scrolling shooter. The story is set in 20,031
 
 %prep
 %setup -n %{insidedir} -q
-%setup -n %{insidedir} -a 1 -T -D
+%setup -q -n %{insidedir} -a 1 -T -D
 %patch
 
 # run lower-script.sh
@@ -53,9 +53,7 @@ rm -rf $RPM_BUILD_ROOT
 make install prefix=/usr DESTDIR=$RPM_BUILD_ROOT
 
 %{__mkdir} -p $RPM_BUILD_ROOT/%{tyriandir}
-#for f in %_builddir/%{insidedir}/tyrian21/*; do
-	#{__install} -m 0644 $f $RPM_BUILD_ROOT/%{tyriandir}/
-#done
+
 find %_builddir/%{insidedir}/tyrian21/ -type f -exec %{__install} -m 0644 {} $RPM_BUILD_ROOT/%{tyriandir}/ \;
 %{__install} -m 0755 %_builddir/%{insidedir}/lower-script.sh $RPM_BUILD_ROOT/%{tyriandir}/
 
