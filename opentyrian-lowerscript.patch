@@ -1,0 +1,12 @@
+--- lower-script.sh.orig	2016-03-17 04:40:20.383914853 +0100
++++ lower-script.sh	2016-03-17 04:39:42.791990026 +0100
+@@ -11,6 +11,8 @@
+ if [[ `echo $confirm | tr '[:upper:]' '[:lower:]'` == 'y' ]]; then
+ 	for f in $target/*; do
+ 		g=`basename "$f" | tr '[:upper:]' '[:lower:]'`
+-		mv -fv "$f" "$target/$g" 2> /dev/null
++		if [ ! -e "$target/$g" ]; then
++			mv -fv "$f" "$target/$g" 2> /dev/null
++		fi
+ 	done
+ fi
