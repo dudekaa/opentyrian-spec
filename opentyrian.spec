@@ -6,7 +6,7 @@ Name: opentyrian
 # 2.1.20180925hg6edd3686f939
 Epoch: 1
 Version: 2.1
-Release: 9.20180925hg6edd3686f939%{?dist}
+Release: 10.20180925hg6edd3686f939%{?dist}
 Summary: OpenTyrian is a port of the DOS shoot-em-up Tyrian.
 
 Group: Games
@@ -19,6 +19,7 @@ Source1: tyrian21.zip
 Patch: opentyrian-lowerscript.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
+BuildRequires: gcc
 BuildRequires: SDL-devel
 BuildRequires: SDL_net-devel
 Requires: SDL
@@ -103,6 +104,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Wed Dec 26 2018 Arnost Dudek <arnost@arnostdudek.cz> - 2.1-10.20180925hg6edd3686f939
+- fixed builds for F29+
+
 * Wed Dec 26 2018 Arnost Dudek <arnost@arnostdudek.cz> - 2.1-9.20180925hg6edd3686f939
 - git rev 6edd3686f939
 - disabled debug build
