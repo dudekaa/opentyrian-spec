@@ -1,4 +1,4 @@
-%global insidedir opentyrian-opentyrian-6edd3686f939
+%global insidedir opentyrian-opentyrian-6b46ca6fa8f7
 %global tyriandir /usr/share/games/opentyrian/data
 %global debug_package %{nil}
 
@@ -6,7 +6,7 @@ Name: opentyrian
 # 2.1.20180925hg6edd3686f939
 Epoch: 1
 Version: 2.1
-Release: 10.20180925hg6edd3686f939%{?dist}
+Release: 11.20190323hg6b46ca6fa8f7%{?dist}
 Summary: OpenTyrian is a port of the DOS shoot-em-up Tyrian.
 
 Group: Games
@@ -104,6 +104,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Fri May 1 2020 Arnost Dudek <arnost@arnostdudek.cz> - 2.1-11.20190323hg6b46ca6fa8f7
+- git rev 6b46ca6fa8f7
+
 * Wed Dec 26 2018 Arnost Dudek <arnost@arnostdudek.cz> - 2.1-10.20180925hg6edd3686f939
 - fixed builds for F29+
 
