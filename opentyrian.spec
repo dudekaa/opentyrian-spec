@@ -26,9 +26,15 @@ Requires: SDL
 Requires: SDL_net
 
 %description
-OpenTyrian is a port of the DOS shoot-em-up Tyrian. Jason Emery generously gave the OpenTyrian developers a copy of the Tyrian 2.1 source code, which has since been ported from Turbo Pascal to C. The port uses SDL, making it easily cross-platform.
+OpenTyrian is a port of the DOS shoot-em-up Tyrian.
 
-Tyrian is an arcade-style vertical scrolling shooter. The story is set in 20,031 where you play as Trent Hawkins, a skilled fighter-pilot employed to fight Microsol and save the galaxy.
+Jason Emery generously gave the OpenTyrian developers a copy of the Tyrian 2.1
+source code, which has since been ported from Turbo Pascal to C.The port uses
+SDL, making it easily cross-platform.
+
+Tyrian is an arcade-style vertical scrolling shooter.
+The story is set in 20,031 where you play as Trent Hawkins,
+a skilled fighter-pilot employed to fight Microsol and save the galaxy.
 
 %prep
 %setup -n %{insidedir} -q
