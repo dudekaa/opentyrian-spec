@@ -12,8 +12,8 @@ Summary: OpenTyrian is a port of the DOS shoot-em-up Tyrian.
 Group: Games
 License: GPLv2
 URL: https://bitbucket.org/opentyrian/opentyrian
-# Fetched from https://bitbucket.org/opentyrian/opentyrian/get/6edd3686f939.zip
-Source: opentyrian-opentyrian-6edd3686f939.zip
+# Fetched from https://bitbucket.org/opentyrian/opentyrian/get/6b46ca6fa8f7.zip
+Source: opentyrian-opentyrian-6b46ca6fa8f7.zip
 # Fetched from http://camanis.net/tyrian/tyrian21.zip
 Source1: tyrian21.zip
 Patch: opentyrian-lowerscript.patch
