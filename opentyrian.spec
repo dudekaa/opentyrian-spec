@@ -16,7 +16,8 @@ URL: https://bitbucket.org/opentyrian/opentyrian
 Source: opentyrian-opentyrian-6b46ca6fa8f7.zip
 # Fetched from http://camanis.net/tyrian/tyrian21.zip
 Source1: tyrian21.zip
-Patch: opentyrian-lowerscript.patch
+Patch0: opentyrian-lowerscript.patch
+Patch1: opentyrian-extern-definitions.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: gcc
@@ -39,7 +40,12 @@ a skilled fighter-pilot employed to fight Microsol and save the galaxy.
 %prep
 %setup -n %{insidedir} -q
 %setup -q -n %{insidedir} -a 1 -T -D
-%patch
+%patch0
+
+# patch sources
+cd %_builddir/%{insidedir}
+%patch1 -p1
+cd -
 
 # run lower-script.sh
 echo y|%_builddir/%{insidedir}/lower-script.sh %_builddir/%{insidedir}/tyrian21
