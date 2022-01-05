@@ -5,7 +5,7 @@
 Name: opentyrian
 Epoch: 1
 Version: 2.1
-Release: 12.20190323hg6b46ca6fa8f7%{?dist}
+Release: 13.20220105gd4f5aff%{?dist}
 Summary: OpenTyrian is a port of the DOS shoot-em-up Tyrian.
 
 Group: Games
@@ -109,7 +109,7 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
-* Sat May 2 2020 Arnost Dudek <arnost@arnostdudek.cz> - 2.1-12.20190323hg6b46ca6fa8f7
+* Wed Jan 5 2022 Arnost Dudek <arnost@arnostdudek.cz> - 2.1-13.20220105gd4f5aff
 - git rev d4f5aff
 - upstream project now using SDL2
 
