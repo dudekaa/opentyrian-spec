@@ -1,9 +1,8 @@
-%global insidedir opentyrian-opentyrian-6b46ca6fa8f7
+%global insidedir opentyrian-d4f5aff9144de4bb23ebc1c391e7fcf8085a27f1
 %global tyriandir /usr/share/games/opentyrian/data
 %global debug_package %{nil}
 
 Name: opentyrian
-# 2.1.20180925hg6edd3686f939
 Epoch: 1
 Version: 2.1
 Release: 12.20190323hg6b46ca6fa8f7%{?dist}
@@ -12,18 +11,18 @@ Summary: OpenTyrian is a port of the DOS shoot-em-up Tyrian.
 Group: Games
 License: GPLv2
 URL: https://bitbucket.org/opentyrian/opentyrian
-# Fetched from https://bitbucket.org/opentyrian/opentyrian/get/6b46ca6fa8f7.zip
-Source: opentyrian-opentyrian-6b46ca6fa8f7.zip
+# Fetched from https://codeload.github.com/opentyrian/opentyrian/zip/d4f5aff9144de4bb23ebc1c391e7fcf8085a27f1
+Source: opentyrian-d4f5aff9144de4bb23ebc1c391e7fcf8085a27f1.zip
 # Fetched from http://camanis.net/tyrian/tyrian21.zip
 Source1: tyrian21.zip
 Patch: opentyrian-lowerscript.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: gcc
-BuildRequires: SDL-devel
-BuildRequires: SDL_net-devel
-Requires: SDL
-Requires: SDL_net
+BuildRequires: SDL2-devel
+BuildRequires: SDL2_net-devel
+Requires: SDL2
+Requires: SDL2_net
 
 %description
 OpenTyrian is a port of the DOS shoot-em-up Tyrian.
@@ -110,6 +109,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sat May 2 2020 Arnost Dudek <arnost@arnostdudek.cz> - 2.1-12.20190323hg6b46ca6fa8f7
+- git rev d4f5aff
+- upstream project now using SDL2
+
 * Sat May 2 2020 Arnost Dudek <arnost@arnostdudek.cz> - 2.1-12.20190323hg6b46ca6fa8f7
 - fixes builds for F32+
 
