@@ -82,13 +82,6 @@ find %_builddir/%{insidedir}/tyrian21/ -type f -exec %{__install} -m 0644 {} $RP
 %{__install} -m 0644 %_builddir/%{insidedir}/linux/icons/tyrian-128.png $RPM_BUILD_ROOT/usr/share/icons/hicolor/128x128/apps/%{name}.png
 
 
-%clean
-if [ -d %{_builddir}/%{insidedir} ]; then
-  rm -rf %_builddir/%{insidedir}
-fi
-rm -rf $RPM_BUILD_ROOT
-
-
 %files
 %defattr(-,root,root)
 %doc %attr(0644,-,-) CREDITS
