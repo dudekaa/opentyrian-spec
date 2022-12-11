@@ -22,11 +22,11 @@ function help {
 
 while getopts ":hl" opt; do
     case ${opt} in
-        h ) # process option a
+        h ) # process option h
         help
         exit 0
         ;;
-        l ) # process option t
+        l ) # process option l
         LOCAL_BUILD="1"
         ;;
         \? )
