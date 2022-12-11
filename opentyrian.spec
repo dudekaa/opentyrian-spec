@@ -1,18 +1,18 @@
-%global insidedir opentyrian-d4f5aff9144de4bb23ebc1c391e7fcf8085a27f1
+%global insidedir opentyrian-2.1.20221123
 %global tyriandir /usr/share/games/opentyrian/data
 %global debug_package %{nil}
 
 Name: opentyrian
 Epoch: 1
 Version: 2.1
-Release: 13.20220105gd4f5aff%{?dist}
+Release: 14.20221123g50ba362%{?dist}
 Summary: OpenTyrian is a port of the DOS shoot-em-up Tyrian.
 
 Group: Games
 License: GPLv2
 URL: https://bitbucket.org/opentyrian/opentyrian
-# Fetched from https://codeload.github.com/opentyrian/opentyrian/zip/d4f5aff9144de4bb23ebc1c391e7fcf8085a27f1
-Source: opentyrian-d4f5aff9144de4bb23ebc1c391e7fcf8085a27f1.zip
+# Fetched from https://github.com/opentyrian/opentyrian/archive/refs/tags/v2.1.20221123.tar.gz
+Source: v2.1.20221123.tar.gz
 # Fetched from http://camanis.net/tyrian/tyrian21.zip
 Source1: tyrian21.zip
 Patch: opentyrian-lowerscript.patch
@@ -84,8 +84,7 @@ find %_builddir/%{insidedir}/tyrian21/ -type f -exec %{__install} -m 0644 {} $RP
 
 %files
 %defattr(-,root,root)
-%doc %attr(0644,-,-) CREDITS
-%doc NEWS
+%doc %attr(0644,-,-) NEWS
 %doc README
 %doc COPYING
 /usr/bin/%{name}
@@ -102,6 +101,18 @@ find %_builddir/%{insidedir}/tyrian21/ -type f -exec %{__install} -m 0644 {} $RP
 
 
 %changelog
+* Sun Dec 11 2022 Arnost Dudek <arnost@arnostdudek.cz> - 2.1-14.20221123g50ba362
+- git rev v2.1.201123
+- Volume control is now on a logarithmic scale
+- Fixed music fade (ex. when starting a level)
+- Reworked audio mixing to reduce clipping
+- Fixed some graphical glitches
+- Mouse pointer is no longer locked to the window except during gameplay
+- Upgraded from SDL to SDL2
+- Redesigned OpenTyrian menu
+- Reworked mouse behavior in menus so that pointer is now visible
+- Replaced JSON configuration file format with custom configuration file format
+
 * Wed Jan 5 2022 Arnost Dudek <arnost@arnostdudek.cz> - 2.1-13.20220105gd4f5aff
 - git rev d4f5aff
 - upstream project now using SDL2
