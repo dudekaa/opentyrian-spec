@@ -5,13 +5,13 @@
 Name: opentyrian
 Epoch: 1
 Version: 2.1
-Release: 14.20221123g50ba362%{?dist}
+Release: 15.20221123g50ba362%{?dist}
 Summary: OpenTyrian is a port of the DOS shoot-em-up Tyrian.
 
 Group: Games
 License: GPLv2
-URL: https://bitbucket.org/opentyrian/opentyrian
-# Fetched from https://github.com/opentyrian/opentyrian/archive/refs/tags/v2.1.20221123.tar.gz
+URL: https://github.com/deathkiller/jazz2-native/
+# Fetched from https://github.com/deathkiller/jazz2-native/archive/refs/heads/master.zip
 Source: v2.1.20221123.tar.gz
 # Fetched from http://camanis.net/tyrian/tyrian21.zip
 Source1: tyrian21.zip
@@ -101,6 +101,9 @@ find %_builddir/%{insidedir}/tyrian21/ -type f -exec %{__install} -m 0644 {} $RP
 
 
 %changelog
+* Sat May 12 2023 Arnost Dudek <arnost@arnostdudek.cz> - 2.1-15.20221123g50ba362
+- rebuild
+
 * Sun Dec 11 2022 Arnost Dudek <arnost@arnostdudek.cz> - 2.1-14.20221123g50ba362
 - git rev v2.1.201123
 - Volume control is now on a logarithmic scale
