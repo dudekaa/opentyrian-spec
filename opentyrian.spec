@@ -2,24 +2,26 @@
 %global tyriandir /usr/share/games/opentyrian/data
 %global debug_package %{nil}
 
-Name: opentyrian
-Epoch: 1
+Name:    opentyrian
+Epoch:   1
 Version: 2.1
-Release: 16.20221123g50ba362%{?dist}
+Release: 17.20221123g50ba362%{?dist}
 Summary: This is a port of the DOS shoot-em-up Tyrian.
 
-Group: Games
+Group:   Games
 License: GPLv2
-URL: https://github.com/opentyrian/opentyrian
-Source: https://github.com/opentyrian/opentyrian/archive/refs/tags/v2.1.20221123.tar.gz
+URL:     https://github.com/opentyrian/opentyrian
+Source:  https://github.com/opentyrian/opentyrian/archive/refs/tags/v2.1.20221123.tar.gz
 Source1: http://camanis.net/tyrian/tyrian21.zip
-Patch0: opentyrian-lowerscript.patch
+Patch0:  opentyrian-lowerscript.patch
 
 BuildRequires: gcc
 BuildRequires: SDL2-devel
 BuildRequires: SDL2_net-devel
+BuildRequires: desktop-file-utils
 Requires: SDL2
 Requires: SDL2_net
+Requires: %{name}-data
 
 %description
 OpenTyrian is a port of the DOS shoot-em-up Tyrian.
@@ -31,6 +33,14 @@ SDL, making it easily cross-platform.
 Tyrian is an arcade-style vertical scrolling shooter.
 The story is set in 20,031 where you play as Trent Hawkins,
 a skilled fighter-pilot employed to fight Microsol and save the galaxy.
+
+%package data
+Summary: Data files for %{name}
+BuildArch: noarch
+
+%description data
+Common data files for %{name} package.
+
 
 %prep
 %setup -n %{insidedir} -q
@@ -61,43 +71,53 @@ find %_builddir/%{insidedir}/tyrian21/ -type f -exec %{__install} -m 0644 {} $RP
 %{__install} -m 0755 %_builddir/%{insidedir}/lower-script.sh $RPM_BUILD_ROOT/%{tyriandir}/
 
 # menu item
-%{__mkdir} -p $RPM_BUILD_ROOT/usr/share/applications
-%{__mkdir} -p $RPM_BUILD_ROOT/usr/share/icons/locolor/22x22/apps
-%{__mkdir} -p $RPM_BUILD_ROOT/usr/share/icons/hicolor/22x22/apps
-%{__mkdir} -p $RPM_BUILD_ROOT/usr/share/icons/hicolor/24x24/apps
-%{__mkdir} -p $RPM_BUILD_ROOT/usr/share/icons/hicolor/32x32/apps
-%{__mkdir} -p $RPM_BUILD_ROOT/usr/share/icons/locolor/48x48/apps
-%{__mkdir} -p $RPM_BUILD_ROOT/usr/share/icons/hicolor/48x48/apps
-%{__mkdir} -p $RPM_BUILD_ROOT/usr/share/icons/hicolor/128x128/apps
-%{__install} -m 0644 %_builddir/%{insidedir}/linux/%{name}.desktop $RPM_BUILD_ROOT/usr/share/applications/%{name}.desktop
-%{__install} -m 0644 %_builddir/%{insidedir}/linux/icons/tyrian-22.png $RPM_BUILD_ROOT/usr/share/icons/locolor/22x22/apps/%{name}.png
-%{__install} -m 0644 %_builddir/%{insidedir}/linux/icons/tyrian-22.png $RPM_BUILD_ROOT/usr/share/icons/hicolor/22x22/apps/%{name}.png
-%{__install} -m 0644 %_builddir/%{insidedir}/linux/icons/tyrian-24.png $RPM_BUILD_ROOT/usr/share/icons/hicolor/24x24/apps/%{name}.png
-%{__install} -m 0644 %_builddir/%{insidedir}/linux/icons/tyrian-32.png $RPM_BUILD_ROOT/usr/share/icons/hicolor/32x32/apps/%{name}.png
-%{__install} -m 0644 %_builddir/%{insidedir}/linux/icons/tyrian-48.png $RPM_BUILD_ROOT/usr/share/icons/locolor/48x48/apps/%{name}.png
-%{__install} -m 0644 %_builddir/%{insidedir}/linux/icons/tyrian-48.png $RPM_BUILD_ROOT/usr/share/icons/hicolor/48x48/apps/%{name}.png
-%{__install} -m 0644 %_builddir/%{insidedir}/linux/icons/tyrian-128.png $RPM_BUILD_ROOT/usr/share/icons/hicolor/128x128/apps/%{name}.png
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/icons/locolor/22x22/apps
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/22x22/apps
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/24x24/apps
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/32x32/apps
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/icons/locolor/48x48/apps
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/48x48/apps
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/128x128/apps
+install -p %_builddir/%{insidedir}/linux/%{name}.desktop $RPM_BUILD_ROOT%{_datadir}/applications/%{name}.desktop
+install -p %_builddir/%{insidedir}/linux/icons/tyrian-22.png $RPM_BUILD_ROOT%{_datadir}/icons/locolor/22x22/apps/%{name}.png
+install -p %_builddir/%{insidedir}/linux/icons/tyrian-22.png $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/22x22/apps/%{name}.png
+install -p %_builddir/%{insidedir}/linux/icons/tyrian-24.png $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/24x24/apps/%{name}.png
+install -p %_builddir/%{insidedir}/linux/icons/tyrian-32.png $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/32x32/apps/%{name}.png
+install -p %_builddir/%{insidedir}/linux/icons/tyrian-48.png $RPM_BUILD_ROOT%{_datadir}/icons/locolor/48x48/apps/%{name}.png
+install -p %_builddir/%{insidedir}/linux/icons/tyrian-48.png $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/48x48/apps/%{name}.png
+install -p %_builddir/%{insidedir}/linux/icons/tyrian-128.png $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/128x128/apps/%{name}.png
+desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/%{name}.desktop
+
+
+# %check
+# make test
 
 
 %files
-%defattr(-,root,root)
-%doc %attr(0644,-,-) NEWS
+%license COPYING
+%doc NEWS
 %doc README
-%doc COPYING
 /usr/bin/%{name}
-%doc /usr/share/man/man6/%{name}.6.gz
+%doc %{_mandir}/man6/%{name}.6.gz
+%{_datadir}/applications/%{name}.desktop
+%{_datadir}/icons/locolor/22x22/apps/%{name}.png
+%{_datadir}/icons/hicolor/22x22/apps/%{name}.png
+%{_datadir}/icons/hicolor/24x24/apps/%{name}.png
+%{_datadir}/icons/hicolor/32x32/apps/%{name}.png
+%{_datadir}/icons/locolor/48x48/apps/%{name}.png
+%{_datadir}/icons/hicolor/48x48/apps/%{name}.png
+%{_datadir}/icons/hicolor/128x128/apps/%{name}.png
+
+
+%files data
 %{tyriandir}
-/usr/share/applications/%{name}.desktop
-/usr/share/icons/locolor/22x22/apps/%{name}.png
-/usr/share/icons/hicolor/22x22/apps/%{name}.png
-/usr/share/icons/hicolor/24x24/apps/%{name}.png
-/usr/share/icons/hicolor/32x32/apps/%{name}.png
-/usr/share/icons/locolor/48x48/apps/%{name}.png
-/usr/share/icons/hicolor/48x48/apps/%{name}.png
-/usr/share/icons/hicolor/128x128/apps/%{name}.png
 
 
 %changelog
+* Sun Nov 19 2023 Arnošt Dudek <arnost@arnostdudek.cz> - 2.1-17.20221123g50ba362
+- Split to app / data packages
+
 * Sun Nov 19 2023 Arnošt Dudek <arnost@arnostdudek.cz> - 2.1-16.20221123g50ba362
 - Fix package build for Fedora 39+
 
