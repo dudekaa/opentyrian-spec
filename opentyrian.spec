@@ -5,16 +5,15 @@
 Name: opentyrian
 Epoch: 1
 Version: 2.1
-Release: 15.20221123g50ba362%{?dist}
-Summary: OpenTyrian is a port of the DOS shoot-em-up Tyrian.
+Release: 16.20221123g50ba362%{?dist}
+Summary: This is a port of the DOS shoot-em-up Tyrian.
 
 Group: Games
 License: GPLv2
 URL: https://github.com/opentyrian/opentyrian
 Source: https://github.com/opentyrian/opentyrian/archive/refs/tags/v2.1.20221123.tar.gz
 Source1: http://camanis.net/tyrian/tyrian21.zip
-Patch: opentyrian-lowerscript.patch
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+Patch0: opentyrian-lowerscript.patch
 
 BuildRequires: gcc
 BuildRequires: SDL2-devel
@@ -36,7 +35,7 @@ a skilled fighter-pilot employed to fight Microsol and save the galaxy.
 %prep
 %setup -n %{insidedir} -q
 %setup -q -n %{insidedir} -a 1 -T -D
-%patch
+%patch -P 0
 
 # run lower-script.sh
 echo y|%_builddir/%{insidedir}/lower-script.sh %_builddir/%{insidedir}/tyrian21
@@ -99,6 +98,9 @@ find %_builddir/%{insidedir}/tyrian21/ -type f -exec %{__install} -m 0644 {} $RP
 
 
 %changelog
+* Sun Nov 19 2023 Arnošt Dudek <arnost@arnostdudek.cz> - 2.1-16.20221123g50ba362
+- Fix package build for Fedora 39+
+
 * Sat May 20 2023 Arnost Dudek <arnost@arnostdudek.cz> - 2.1-15.20221123g50ba362
 - rebuild from github.com sources
 

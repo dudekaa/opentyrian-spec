@@ -55,7 +55,6 @@ else
     rpkg tag
 
     log "Building in COPR..."
-    #copr-cli build opentyrian "$PACKAGE"
     rpkg build -w nost23/opentyrian
 fi
 
