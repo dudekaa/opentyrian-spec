@@ -5,7 +5,7 @@
 Name:    opentyrian
 Epoch:   1
 Version: 2.1
-Release: 17.20221123g50ba362%{?dist}
+Release: 18.20221123g50ba362%{?dist}
 Summary: This is a port of the DOS shoot-em-up Tyrian.
 
 Group:   Games
@@ -115,6 +115,9 @@ desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Sun Aug 03 2025 Arnošt Dudek <arnost@arnostdudek.cz> - 2.1-18.20221123g50ba362
+- Rebuild
+
 * Sun Nov 19 2023 Arnošt Dudek <arnost@arnostdudek.cz> - 2.1-17.20221123g50ba362
 - Split to app / data packages
 
