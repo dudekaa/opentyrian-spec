@@ -86,7 +86,7 @@ pipeline {
             }
             // trigger build in COPR infrastructure
             steps {
-                sh 'copr-cli --config ' + env.COPR_CONFIG_FILE + ' buildscm opentyrian --clone-url "https://' + env.UPSTREAM_REPO + '" --spec opentyrian.spec --commit ' + params.BUILD_TAG
+                sh 'copr-cli --config ' + env.COPR_CONFIG_FILE + ' buildscm opentyrian --clone-url "https://github.com/dudekaa/opentyrian-spec.git" --spec opentyrian.spec --commit ' + params.BUILD_TAG
             }
         }
     }
